@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Owner Dashbored </title>
+<link rel="stylesheet" href="css.css">
+<script>
+    window.onload = function() {
+        var meals = JSON.parse(localStorage.getItem("restaurantMeals")) || [];
+        var mealContainer = document.getElementById("mealContainer");
+
+        if (meals.length === 0) {
+            mealContainer.innerHTML = "<p>No meals added yet.</p>";
+        } else {
+            meals.forEach(function(meal) {
+                var mealDiv = document.createElement("div");
+                mealDiv.classList.add("meal");
+                mealDiv.innerHTML = `
+    <img src="${meal.photo}" alt="Meal">
+    <h3>${meal.name}</h3>
+    <p>Description: ${meal.description}</p>
+    <p>Price: ${meal.price}</p>
+    <p>Calories: ${meal.calories}</p>
+`;
+                mealContainer.appendChild(mealDiv);
+            });
+        }
+    };
+
+</script>
+</head>
+
+
+<body>
+
+
+<header>
+    <div class="HEADER">
+        <img src="img/yumburger.png" alt="Logo">
+        <div class="vertical-line"></div>
+        <h1>YUM YUM</h1>
+    </div>
+    <nav>
+        <a href="Home.html" accesskey="1" >Home</a>
+        <a href="customer.html" accesskey="2" >Customer</a>
+        <a href="ownerdashbord.html" accesskey="3" >Owner</a>
+    </nav>
+
+</header>
+
+
+<div id='breadcrumb' > 
+ <a href = "Home.html" > home  </a>  &gt;  
+<a href="ownerdashbord.html">Owner dashbored </a> 
+</div>
+ 
+<main>
+
+
+<!-- theme -->
+             
+<form class="color-picker" action="">
+        <fieldset>
+           <legend class="visually-hidden">Appearance</legend>
+            <label for="light" class="visually-hidden">Light Mode</label>
+            <input type="radio" id="light" name="theme" checked="">
+
+            <label for="dark" class="visually-hidden">Dark Mode</label>
+            <input type="radio" id="dark" name="theme">
+
+        </fieldset>
+    </form>
+
+        <div class="restlogo">
+		<h1> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTY1shejTt8wywpElnYJy64hko0SD2GCKvRlg&usqp=CAU"  alt="Icon 1">  Fire Girll  </h1>
+        </div>   
+		
+       <h2 class="page">Restaurant Meals</h2>
+        
+
+        <ul id="mealList"></ul>
+
+        <div class="flex-container" id="mealContainer">
+		
+		  
+         </div>
+		
+		
+		
+		<div class="MakeDeleteOfPage">
+		<a href="MakeDeleteOfPage.html" ><img src="img/managelogo.png" alt="page make or delete offers" >
+                <h2>Manage Offers Here</h2></a>
+            </div>
+		
+		
+			<div class="addnewmeal">
+                <a href="addnewmeal.html" ><img src="img/pluslogo.png" alt="page add new meal" ><h2>Add a new meal</h2></a>
+                
+            </div>
+			
+</main>
+<footer>
+    <div class="left-section">
+        <p>
+           <a href="mailto:YUM-YUM@restaurant.com"> <img src="img/mail.png" alt="Email Logo" > YUM-YUM@restaurant.com</a><br>
+            <img src="img/phone.png" alt="Phone Logo"> +966-555-5555
+        </p>
+    </div>
+
+    <div class="middle-section">
+         <div class="social">
+        <a href="https://twitter.com/?lang=en"><img src="img/x.png" alt="Twitter Logo"></a>
+        <a href="https://www.instagram.com/"><img src="img/insta.png" alt="Instagram Logo"></a>
+        <a href="https://www.facebook.com/"><img src="img/facebook.png" alt="Facebook Logo"></a>
+        </div>
+        <p> @YUM-YUM</p>
+    </div>
+    
+
+    <div class="right-section">
+        <p>&copy; 2024 YUM YUM. All rights reserved. </p>
+    </div>
+</footer>
+
+</body>
+
+</html>

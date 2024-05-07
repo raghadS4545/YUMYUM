@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YUM YUM</title>
+<link rel="stylesheet" href="css.css">
+<script src="js.js"></script>
+<style>
+/* Media Query for smaller screens */
+@media only screen and (max-width: 768px) {
+    /* Adjust styles for smaller screens */
+
+    /* Ensure the content within offer-info and customer-review fits within the container */
+    .offer-info,
+    .customer-review {
+        width: 40%; /* Set width to 100% to ensure it fits within the container */
+        margin-bottom: 10px; /* Adjust margin */
+    }
+
+    /* Adjust navigation styles for smaller screens */
+    nav {
+        width: 100%; /* Set width to 100% */
+        flex-direction: column; /* Change direction to column */
+        align-items: center; /* Center align navigation items */
+    }
+
+    /* Adjust footer styles for smaller screens */
+    footer {
+        flex-direction: column; /* Change direction to column */
+        align-items: center; /* Center align footer items */
+    }
+
+    .left-section,
+    .right-section {
+        margin: 0; /* Reset margin */
+    }
+
+    /* Resize food photos */
+    .food-photo {
+        max-width: 50%; /* Ensure food photos don't exceed container width */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    /* Resize offer images */
+    .offer-info img {
+        max-width: 50%; /* Ensure offer images don't exceed container width */
+        height: auto; /* Maintain aspect ratio */
+    }
+}
+
+/* Media Query for larger screens */
+@media only screen and (min-width: 769px) {
+    /* Adjust styles for larger screens */
+
+    /* Restore original styles for offer-info and customer-review */
+    .offer-info,
+    .customer-review {
+        width: calc(33.33% - 20px); /* Restore original width */
+        margin-bottom: 20px; /* Restore original margin */
+    }
+
+    /* Restore original navigation styles */
+    nav {
+        width: 30%; /* Restore original width */
+        flex-direction: row; /* Restore original direction */
+        justify-content: space-between; /* Restore original spacing */
+        margin: 0 auto; /* Center align navigation */
+    }
+
+    /* Restore original footer styles */
+    footer {
+        flex-direction: row; /* Restore original direction */
+        justify-content: space-between; /* Restore original spacing */
+        align-items: center; /* Restore original alignment */
+        padding: 50px; /* Restore original padding */
+    }
+}
+
+
+
+
+</style>
+
+</head>
+<body>
+<header>
+    <div class="HEADER">
+        <img src="img/yumburger.png" alt="Logo">
+        <div class="vertical-line"></div>
+        <h1>YUM YUM</h1>
+    </div>
+    <nav class="navigation">
+        <a href="Home.html" accesskey="1" >Home</a>
+        <a href="customer.html" accesskey="2" >Customer</a>
+        <a href="ownerdashbord.html" accesskey="3" >Owner</a>
+    </nav>
+
+</header>
+
+<div class="breadcrumbs">
+    <a href="Home.html" >Home </a>
+</div>
+
+<main>
+
+<img class="vision-photo" src="img/vision1.jpe	g" alt="Vision Photo">
+
+
+
+<form class="color-picker" action="">
+        <fieldset>
+           <legend class="visually-hidden">Appearance</legend>
+            <label for="light" class="visually-hidden">Light Mode</label>
+            <input type="radio" id="light" name="theme" checked="">
+
+            <label for="dark" class="visually-hidden">Dark Mode</label>
+            <input type="radio" id="dark" name="theme">
+
+        </fieldset>
+    </form>
+
+
+
+
+
+<div class="restaurant-offers">
+<h2 class="page">Restaurant Offers</h2>
+    
+    <p>Discover a world of culinary delights with our diverse range of restaurants. From local favorites to international cuisines, satisfy every craving with our convenient delivery service.</p>
+    <div class="OffersANDReviews">
+
+
+        <div class="offer-info">
+           <a href="Index2.html"> <img src="img/mamanoura.png" alt="Offer 1"></a>
+            <h3>Mama Noura</h3>
+            <p>including grilled meats, shawarma, falafel, and various salads and appetizers. It's a favorite spot for locals and visitors alike to enjoy delicious and authentic Arabic food in a casual dining atmosphere.</p>
+        </div>
+
+        <div class="offer-info">
+            <a href="Index2.html"><img src="img/chnk.jpg" alt="Offer 2"></a>
+            <h3>CHNK</h3>
+            <p>Delicious chicken dishes delivered fast! Explore a menu packed with flavor-packed creations made with top-quality ingredients. Order now for a tasty meal delivered right to you!</p>
+        </div>
+
+        <div class="offer-info">
+            <a href="Index2.html"><img src="img/boga.jpeg" alt="Offer 3"></a>
+            <h3>BOGA</h3>
+            <p> Offers a delectable range of healthy food options, featuring an array of fresh salads and hearty sandwiches.</p>
+        </div>
+
+        <div class="offer-info">
+           <a href="Index2.html"> <img src="img/milion.png" alt="Offer 4"></a>
+            <h3>Half Million</h3>
+            <p>Offering a diverse range of dishes to tantalize your taste buds. From traditional favorites to innovative culinary creations, each dish is prepared with care and attention to detail. </p>
+        </div>
+
+        <div class="offer-info">
+            <a href="Index2.html"><img src="img/applebees.png" alt="Offer 5"></a>
+            <h3>Restaurant 2</h3>
+            <p>Brings the taste of America to your doorstep with its delectable menu of classic favorites and innovative dishes.</p>
+        </div>
+
+        <div class="offer-info">
+           <a href="Index2.html"> <img src="img/Shawarmer.jpg" alt="Offer 6"></a>
+            <h3>Shawarmer</h3>
+            <p>Indulge in our mouthwatering selection of shawarma wraps, grilled meats, fresh salads, and more, all crafted with the finest ingredients and traditional recipes.</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="customer-reviews">
+    <h2  class="page">Customer Reviews</h2>
+    <div class="OffersANDReviews">
+
+
+        <div class="customer-review">
+            <div class="customer-info">
+                <img class="customer-photo" src="img/comstomer.png" alt="Customer 1">
+                <h3>John Doe</h3>
+                <div class="stars">&#9733;&#9733;&#9733;</div>
+            </div>
+                <h3>MAMA NOURA</h3> 
+            <p>If you want to drink a delicious natural fruit juice and eat something you have to go to this place. The customer service is friendly. </p>
+            <img class="food-photo" src="img/mn_logo.jpeg" alt="Food Photo">
+        </div>
+
+
+        <div class="customer-review">
+            <div class="customer-info">
+                <img class="customer-photo" src="img/comstomer.png" alt="Customer 1">
+                <h3>Ahmed</h3>
+                <div class="stars">&#9733;&#9733;&#9733;</div>
+            </div>
+                <h3>BOGA</h3> 
+            <p>This place is good for those who want to stay fit and healthy. They are serving a variety of salads, sandwiches, and freshly made juices. </p>
+            <img class="food-photo" src="img/salad.jpeg" alt="Food Photo">
+        </div>
+
+
+        <div class="customer-review">
+            <div class="customer-info">
+                <img class="customer-photo" src="img/comstomer.png" alt="Customer 1">
+                <h3>Fatima</h3>
+                <div class="stars">&#9733;&#9733;&#9733;</div>
+            </div>
+                <h3>Half million</h3> 
+            <p >Half Million is one of the places that I deeply regret not knowing them earlier. Everything about them is incredible.</p>
+            <img class="food-photo" src="img/coffe.jpg" alt="Food Photo">
+        </div>
+
+    </div>
+</div>
+</main>
+<footer>
+    <div class="left-section">
+        <p>
+           <a href="mailto:YUM-YUM@restaurant.com"> <img src="img/mail.png" alt="Email Logo" > YUM-YUM@restaurant.com</a><br>
+            <img src="img/phone.png" alt="Phone Logo"> +966-555-5555
+        </p>
+    </div>
+
+    <div class="middle-section">
+         <div class="social">
+        <a href="https://twitter.com/?lang=en"><img src="img/x.png" alt="Twitter Logo"></a>
+        <a href="https://www.instagram.com/"><img src="img/insta.png" alt="Instagram Logo"></a>
+        <a href="https://www.facebook.com/"><img src="img/facebook.png" alt="Facebook Logo"></a>
+        </div>
+        <p> @YUM-YUM</p>
+    </div>
+    
+
+    <div class="right-section">
+        <p>&copy; 2024 YUM YUM. All rights reserved. </p>
+    </div>
+</footer>
+
+
+
+
+</body>
+</html>

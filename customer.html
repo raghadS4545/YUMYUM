@@ -1,0 +1,323 @@
+
+<!DOCTYPE html>
+<html> 
+
+<head>
+<meta charset="utf-8">
+
+<title> customer dashborad </title>
+<link rel="stylesheet" href="css.css">
+ <style>
+        /* Your existing CSS styles here */
+
+        .restaurant-box {
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .restaurant-box:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .restaurant-info {
+            cursor: pointer;
+        }
+		
+		        html {
+            font-family: Playfair Display, Merriweather;
+            scroll-behavior: smooth;
+        }
+
+
+
+        #currentWeekDate {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--clr-text);
+            margin-bottom: 20px;
+            padding-top: 2%;
+        }
+		
+		.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto; /* Adjust the height as needed */
+}
+
+        .more-btn {
+            color: var(--clr-text);
+            background-color: var(--clr-heading);
+            border-radius: 10px;
+            transition: 0.2s;
+            padding: 0.2em 0.6em;
+            border: none;
+
+        }
+        .more-btn:hover{
+            background-color: #fbf2d5;
+            transform: scale(1.05, 1.05);
+        }
+    </style>
+</head> 
+
+<body>
+<header>
+    <div class="HEADER">
+        <img src="img/yumburger.png" alt="Logo">
+        <div class="vertical-line"></div>
+        <h1>YUM YUM</h1>
+    </div>
+    <nav>
+        <a href="Home.html" accesskey="1" >Home</a>
+        <a href="customer.html" accesskey="2" >Customer</a>
+        <a href="ownerdashbord.html" accesskey="3" >Owner</a>
+    </nav>
+
+</header>
+  
+  
+  
+  
+
+  <div class='breadcrumbs' > 
+  <a href="Home.html" >Home </a> &gt;
+ <a href = "customer.html" >Customer </a> 
+ </div>
+
+<main> 
+
+<!-- theme -->
+      
+<form class="color-picker" action="">
+        <fieldset>
+           <legend class="visually-hidden">Appearance</legend>
+            <label for="light" class="visually-hidden">Light Mode</label>
+            <input type="radio" id="light" name="theme" checked="">
+
+            <label for="dark" class="visually-hidden">Dark Mode</label>
+            <input type="radio" id="dark" name="theme">
+
+        </fieldset>
+    </form>
+
+  <h2 class="page">Customer
+  <p id="currentWeekDate">Current Week: Sunday, April 28</p> </h2>
+  
+  
+  
+  
+  
+ <div class="restaurant-list">
+ 
+	<section class="restaurants">
+        <div class="content">
+
+            <div class="restaurant-box">
+                <div class="restaurant-info">
+                    <strong class="restaurant-title">
+					
+               <h2>  <a href="Index2.html"><img src="https://i.pinimg.com/564x/63/e0/3d/63e03de74b7197d4320a3c79960f2b9d.jpg"   height= "70" width = "70" alt="Icon 1">    </a> Washa </h2>
+
+					<div class="Rating">
+                <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9734;</span>
+            </div>             
+                    </strong>
+                    <p class="restaurant-category"> Washa invites diners on a culinary voyage
+					to Ethiopia, where bold spices and rich flavors take center stage.
+                             </p> 
+                </div>     
+            </div>
+
+            <!-- Add more restaurant boxes as needed -->
+            <div class="restaurant-box">
+                <div class="restaurant-info">
+                    <strong class="restaurant-title">
+            <h2> <a href="Index2.html"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSH6nGWlbo5cGOsGxSTBcaylEMu6OsQe5j-LQ&usqp=CAU"   height= "70" width = "70"  alt="Icon 1"></a>  Mama nora  </h2>
+
+				<div class="Rating">
+                <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9734;</span>
+            </div>             
+                    </strong>
+                    <p class="restaurant-category">Mama Nora offers a delightful culinary journey through traditional Mediterranean cuisine. Nestled in the heart of the city, this restaurant is renowned for its authentic flavors and warm ambiance.</p>
+                </div>     
+            </div>
+			
+			
+			
+		   <div class="restaurant-box">
+                <div class="restaurant-info">
+                    <strong class="restaurant-title">
+            <h2> <a href="Index2.html"><img src="https://i.pinimg.com/564x/65/59/e1/6559e158a2555cb4c0599b9ab311aa1c.jpg"   height= "70" width = "70"  alt="Icon 1"></a>  The green plate  </h2>
+
+				<div class="Rating">
+                <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9734;</span>
+            </div>             
+                    </strong>
+                    <p class="restaurant-category">The Green Plate is a haven for health-conscious foodies seeking delicious and nutritious meals.</p>
+                </div>     
+            </div>
+			
+			<span id="morePython" style="display: none;">
+						
+		   <div class="restaurant-box">
+                <div class="restaurant-info">
+                    <strong class="restaurant-title">
+            <h2><a href="Index2.html"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTY1shejTt8wywpElnYJy64hko0SD2GCKvRlg&usqp=CAU"   height= "70" width = "70"  alt="Icon 1"> </a>  Fire grill </h2>
+
+				<div class="Rating">
+                <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9734;</span>
+            </div>             
+                    </strong>
+                    <p class="restaurant-category">Fire Grill is a carnivore's paradise, where sizzling steaks and juicy burgers reign supreme. With an emphasis on premium cuts of meat and expert grilling techniques.</p>
+                </div>     
+            </div>
+			
+			
+						
+		   <div class="restaurant-box">
+                <div class="restaurant-info">
+                    <strong class="restaurant-title">
+            <h2><a href="Index2.html"><img src="https://i.pinimg.com/564x/e3/bb/94/e3bb94666912702864f3b3e6b8ecc939.jpg"   height= "70" width = "70"  alt="Icon 1"></a>  Taste of hijaz </h2>
+
+				<div class="Rating">
+                <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9734;</span>
+            </div>             
+                    </strong>
+                    <p class="restaurant-category">Taste of Hijaz offers a tantalizing fusion of flavors from the Arabian Peninsula, where spices and aromatics transform ordinary ingredients into culinary masterpieces.</p>
+                </div>     
+            </div>
+			
+						
+		   <div class="restaurant-box">
+                <div class="restaurant-info">
+                    <strong class="restaurant-title">
+            <h2> <a href="Index2.html"><img src="data:image/png;base64,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"   height= "70" width = "70"  alt="Icon 1"></a>  Al baike </h2>
+
+				<div class="Rating">
+                <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9734;</span>
+            </div>             
+                    </strong>
+                    <p class="restaurant-category">Albaik is a beloved institution renowned for its irresistible fried chicken and delectable fast food offerings. Originating in Saudi Arabia.</p>
+                </div>     
+            </div>
+       </span>
+ <div class="container">	   
+	   <button onclick="toggleVisibility('morePython', 'btnPython')" class="more-btn" id="btnPython">show more</button>
+	      </div>  
+		   
+		   </div>
+    </section>	
+		
+		
+		
+		
+
+		
+		
+		
+		</div>
+	</main> 	
+   <footer>
+    <div class="left-section">
+        <p>
+           <a href="mailto:YUM-YUM@restaurant.com"> <img src="img/mail.png" alt="Email Logo" > YUM-YUM@restaurant.com</a><br>
+            <img src="img/phone.png" alt="Phone Logo"> +966-555-5555
+        </p>
+    </div>
+
+    <div class="middle-section">
+         <div class="social">
+        <a href="https://twitter.com/?lang=en"><img src="img/x.png" alt="Twitter Logo"></a>
+        <a href="https://www.instagram.com/"><img src="img/insta.png" alt="Instagram Logo"></a>
+        <a href="https://www.facebook.com/"><img src="img/facebook.png" alt="Facebook Logo"></a>
+        </div>
+        <p> @YUM-YUM</p>
+    </div>
+    
+
+    <div class="right-section">
+        <p>&copy; 2024 YUM YUM. All rights reserved. </p>
+    </div>
+</footer>
+		
+		<script>
+        // Get all restaurant boxes
+        const restaurantBoxes = document.querySelectorAll('.restaurant-box');
+
+        // Loop through each restaurant box
+        restaurantBoxes.forEach(box => {
+            // Add mouse enter event listener
+            box.addEventListener('mouseenter', function() {
+                // Show description on hover
+                this.querySelector('.restaurant-category').style.display = 'block';
+            });
+
+            // Add mouse leave event listener
+            box.addEventListener('mouseleave', function() {
+                // Hide description on mouse leave
+                this.querySelector('.restaurant-category').style.display = 'none';
+            });
+        });
+    </script>
+		
+		 <script>
+		// more btn
+
+
+    function toggleVisibility(courseId, btnId) {
+        var moreText = document.getElementById(courseId);
+        var btnText = document.getElementById(btnId);
+
+        if (moreText.style.display === "inline") {
+            btnText.innerHTML = "show more";
+            moreText.style.display = "none";
+        } else {
+            btnText.innerHTML = "show less";
+            moreText.style.display = "inline";
+        }
+    }  
+
+ </script>
+	
+
+<script>
+ // date function
+
+function getStartOfWeek() {
+    var currentDate = new Date();
+    var dayOfWeek = currentDate.getDay();
+    var daysToSubtract = dayOfWeek === 0 ? 0 : dayOfWeek;
+
+    currentDate.setDate(currentDate.getDate() - daysToSubtract);
+
+    var options = { weekday: 'long', day: 'numeric', month: 'long' };
+    var formattedDate = currentDate.toLocaleDateString('en-SA', options);
+
+    return formattedDate;
+}
+
+function updateCurrentWeekDate() {
+    var currentWeekDateElement = document.getElementById("currentWeekDate");
+    if (currentWeekDateElement) {
+        var startOfWeek = getStartOfWeek();
+        currentWeekDateElement.textContent = "Current Week: " + startOfWeek;
+    }
+}
+window.onload = function () {
+    updateCurrentWeekDate();
+};
+	</script>
+	
+	
+  </body>
+  
+  
+  </html>
+  
+  
+  

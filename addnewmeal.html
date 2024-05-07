@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Owner Dashbored</title>
+<link rel="stylesheet" href="css.css">
+</head>
+
+<body>
+<header>
+    <div class="HEADER">
+        <img src="img/yumburger.png" alt="Logo">
+        <div class="vertical-line"></div>
+        <h1>YUM YUM</h1>
+    </div>
+    <nav>
+        <a href="Home.html" accesskey="1" >Home</a>
+        <a href="customer.html" accesskey="2" >Customer</a>
+        <a href="ownerdashbord.html" accesskey="3" >Owner</a>
+    </nav>
+
+</header>
+
+<div class='breadcrumb' > 
+  <a href = "home.html" > home  </a>  &gt; 
+ <a href="ownerdashbord.html">Owner Dashbored </a> &gt;
+<a href="addnewmeal.html"> Add New Meal </a>
+</div>
+ 
+<main> 
+	
+<!-- theme -->
+             
+<form class="color-picker" action="">
+        <fieldset>
+           <legend class="visually-hidden">Appearance</legend>
+            <label for="light" class="visually-hidden">Light Mode</label>
+            <input type="radio" id="light" name="theme" checked="">
+
+            <label for="dark" class="visually-hidden">Dark Mode</label>
+            <input type="radio" id="dark" name="theme">
+
+        </fieldset>
+    </form>
+	
+
+	<h2 class="page">Cuisine inforamtion</h2>
+    
+    <form action="text" method="Post" class="cuisine-form">
+	
+            <div class="FormC">
+                <label class="LABLE" for="name">Name of Meal:</label>
+                <input class="INPUT" id="name" type="text" name="name" required>
+            </div>
+            <div class="FormC">
+                <label class="LABLE" for="calories">Calories:</label>
+                <input class="INPUT" type="text" id="calories" required>
+            </div>
+            <div class="FormC">
+                <label class="LABLE" for="description">Description:</label>
+                <textarea class="INPUT" id="description" name="description" required></textarea>
+            </div>
+			
+            <div class="FormC">
+                <label class="LABLE" for="prices">Prices:</label>
+                <input type="text"  id="prices" class="INPUT" name="prices" required>
+            </div>
+            <div class="FormC">
+                <label class="LABLE" for="photo">Photo:</label>
+                <input type="file" id="photo" name="photo" required>
+            </div>
+			
+		
+            <button type="submit" id="theButton">Add</button>
+			
+        </form>
+		
+    
+	
+ 		
+</main>
+
+<footer>
+    <div class="left-section">
+        <p>
+           <a href="mailto:YUM-YUM@restaurant.com"> <img src="img/mail.png" alt="Email Logo" > YUM-YUM@restaurant.com</a><br>
+            <img src="img/phone.png" alt="Phone Logo"> +966-555-5555
+        </p>
+    </div>
+
+    <div class="middle-section">
+         <div class="social">
+        <a href="https://twitter.com/?lang=en"><img src="img/x.png" alt="Twitter Logo"></a>
+        <a href="https://www.instagram.com/"><img src="img/insta.png" alt="Instagram Logo"></a>
+        <a href="https://www.facebook.com/"><img src="img/facebook.png" alt="Facebook Logo"></a>
+        </div>
+        <p> @YUM-YUM</p>
+    </div>
+    
+
+    <div class="right-section">
+        <p>&copy; 2024 YUM YUM. All rights reserved. </p>
+    </div>
+</footer>
+
+<script>
+ document.getElementById("theButton").addEventListener("click", function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    var name = document.getElementById("name").value;
+    var calories = document.getElementById("calories").value;
+    var price = document.getElementById("prices").value;
+    var description = document.getElementById("description").value;
+
+    if (!name || !calories || !price || !description) {
+        alert("Please fill in all fields.");
+        return;
+    }
+
+    if (!isNaN(name.charAt(0))) {
+        alert("Name cannot start with a number.");
+        return;
+    }
+
+    if (isNaN(calories) || isNaN(price)) {
+        alert("Calories and price must be numbers.");
+        return;
+    }
+
+    var meal = {
+        name: name,
+        calories: parseInt(calories),
+        price: parseFloat(price),
+        description: description
+    };
+
+    var meals = JSON.parse(localStorage.getItem("restaurantMeals")) || [];
+    meals.push(meal);
+    localStorage.setItem("restaurantMeals", JSON.stringify(meals));
+
+    alert("Meal '" + name + "' added successfully.");
+
+    document.getElementById("name").value = "";
+    document.getElementById("calories").value = "";
+    document.getElementById("prices").value = "";
+    document.getElementById("description").value = "";
+});
+	</script>
+</body>
+
+</html>

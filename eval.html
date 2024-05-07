@@ -1,0 +1,139 @@
+
+<!DOCTYPE html> 
+<html> 
+
+<head>
+<meta charset="utf-8">
+<title> customer dashborad </title>
+<link rel="stylesheet" href="css.css">
+
+</head>
+<body>
+<header>
+    <div class="HEADER">
+        <img src="img/yumburger.png" alt="Logo">
+        <div class="vertical-line"></div>
+        <h1>YUM YUM</h1>
+    </div>
+    <nav>
+        <a href="Home.html" accesskey="1" >Home</a>
+        <a href="customer.html" accesskey="2" >Customer</a>
+        <a href="ownerdashbord.html" accesskey="3" >Owner</a>
+    </nav>
+
+</header>
+ 
+  
+
+<div class="breadcrumbs">
+<a href="Home.html" >Home </a> &gt; 
+<a href = "customer.html" > Customer </a> &gt; 
+<a href = "Index2.html" > Resturan </a> &gt; 
+<a href = "paid.html" > Tha cart</a> &gt; 
+ <a href = "eval.html" >Resturan evaluation </a>
+</div>  
+
+
+
+<main>
+ <!-- theme -->
+           
+<form class="color-picker" action="">
+        <fieldset>
+           <legend class="visually-hidden">Appearance</legend>
+            <label for="light" class="visually-hidden">Light Mode</label>
+            <input type="radio" id="light" name="theme" checked="">
+
+            <label for="dark" class="visually-hidden">Dark Mode</label>
+            <input type="radio" id="dark" name="theme">
+
+        </fieldset>
+    </form>
+
+<h2 class="page">Restaurant evaluation</h2>
+
+<form name ="form1" action="#" method="post" onsubmit="return Form()">
+
+ <div class="container">
+        <select class="choose" name="resturant" required="">
+          <option value="">Select a resturant</option>
+          <option value="mama norah">mama norh</option>
+          <option value="the green plate">the green plate</option>
+          <option value="washa">washa</option>
+          <option value="Fire grill">Fire grill</option>
+          <option value="Taste of hijaz">taste of hijaz</option>
+          <option value="Albaike">Albaike</option>
+        </select>
+
+        <label for="feedback">Write your feedback:</label>
+        <textarea id="feedback" name="feedback" rows="8" cols="64"> </textarea>
+
+         
+
+
+
+
+        <div class="rating">
+          <label class= "rate" > Rate:</label>
+          <div class="star-rating">
+            <input class="radio-input" type="radio" id="star5" name="star-input" value="5" required>
+            <label class="radio-label" for="star5" title="5 stars"></label>
+
+            <input class="radio-input" type="radio" id="star4" name="star-input" value="4" required >
+            <label class="radio-label" for="star4" title="4 stars"></label>
+
+            <input class="radio-input" type="radio" id="star3" name="star-input" value="3"  required>
+            <label class="radio-label" for="star3" title="3 stars"></label>
+
+            <input class="radio-input" type="radio" id="star2" name="star-input" value="2" required>
+            <label class="radio-label" for="star2" title="2 stars"></label>
+
+            <input class="radio-input" type="radio" id="star1" name="star-input" value="1" required>
+            <label class="radio-label" for="star1" title="1 star"></label>
+          </div>
+		  <input class = "buttun-offers"type="submit" id="submit" value="submit">
+        </div>
+</div>
+
+</form>
+   
+
+  
+</main>
+<footer>
+    <div class="left-section">
+        <p>
+           <a href="mailto:YUM-YUM@restaurant.com"> <img src="img/mail.png" alt="Email Logo" > YUM-YUM@restaurant.com</a><br>
+            <img src="img/phone.png" alt="Phone Logo"> +966-555-5555
+        </p>
+    </div>
+
+    <div class="middle-section">
+         <div class="social">
+        <a href="https://twitter.com/?lang=en"><img src="img/x.png" alt="Twitter Logo"></a>
+        <a href="https://www.instagram.com/"><img src="img/insta.png" alt="Instagram Logo"></a>
+        <a href="https://www.facebook.com/"><img src="img/facebook.png" alt="Facebook Logo"></a>
+        </div>
+        <p> @YUM-YUM</p>
+    </div>
+    
+
+    <div class="right-section">
+        <p>&copy; 2024 YUM YUM. All rights reserved. </p>
+    </div>
+</footer>
+
+<script>
+    function Form() {
+        var Restaurant = document.forms["form1"]["resturant"].value;
+        var starValue = document.querySelector('input[name="star-input"]:checked').value;
+
+        alert("Thank you for your feedback!\nYour rating for Restaurant " + Restaurant + " is " + starValue);
+                window.location.href = "Home.html";
+
+        return false;
+    }
+</script>
+
+</body>
+ </html>

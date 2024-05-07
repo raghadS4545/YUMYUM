@@ -1,0 +1,253 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Deserts</title>
+     <link rel="stylesheet" href="css.css">
+</head>
+<body>
+<header>
+    <div class="HEADER">
+        <img src="img/yumburger.png" alt="Logo">
+        <div class="vertical-line"></div>
+        <h1>YUM YUM</h1>
+    </div>
+    <nav>
+        <a href="Home.html" accesskey="1" >Home</a>
+        <a href="customer.html" accesskey="2" >Customer</a>
+        <a href="ownerdashbord.html" accesskey="3" >Owner</a>
+    </nav>
+
+</header>
+
+
+    <div class='breadcrumbs'>
+ <a href = "Home.html" > Home </a>  &gt; 
+<a href = "customer.html" > Customer </a> &gt; 
+ <a href = "Index2.html" > Resturant </a>  
+  </div>
+
+
+  <a href="paid.html" id="cartBtn" class="cart">The cart</a>
+
+
+    <img class="picture" src="img/mamanoura11.jpg" alt=" picture">
+
+<main>
+<!-- theme -->
+            
+<form class="color-picker" action="">
+        <fieldset>
+           <legend class="visually-hidden">Appearance</legend>
+            <label for="light" class="visually-hidden">Light Mode</label>
+            <input type="radio" id="light" name="theme" checked="">
+
+            <label for="dark" class="visually-hidden">Dark Mode</label>
+            <input type="radio" id="dark" name="theme">
+
+        </fieldset>
+    </form>
+
+    <div class="categories">
+        
+            <a href="Index2.html"> chickens</a> 
+            <a  href="salad.html">salad</a>
+            <a id="active" href="deserts.html">deserts</a>
+        
+    </div>
+		 
+    
+    <div class="sorting">
+    <a id="second_t"></a>
+
+ <select id="sortSelect">
+                <option value="nameAsc">Sort by Name (A-Z)</option>
+                <option value="nameDesc">Sort by Name (Z-A)</option>
+                <option value="priceAsc">Sort by Price (Low to High)</option>
+                <option value="priceDesc">Sort by Price (High to Low)</option>
+            </select>
+    </div>
+    <div class="items-grid" id="itemsGrid">
+        <div class="item">
+    <img src="https://i.pinimg.com/564x/6c/3b/10/6c3b10c95f7b8a71c8fbd59c80429c5c.jpg" alt="Meal Image" class="product-image" width="200" height="200">
+    <div class="meal-info">
+        <div class="meal-name">Arabic Desert</div>
+        <div class="meal-description">Decadent chocolate oozing from a warm, delicate shell..</div>
+        <div class="meal-calories">1000 of cals</div>
+		<div class="meal-price">$20.99</div>
+                    <input type="checkbox" class="meal-checkbox">
+                    <button class="quantity-btn" data-operation="add">+</button>
+                    <span class="quantity">0</span>
+                    <button class="quantity-btn" data-operation="subtract">-</button>
+    </div>
+</div>
+
+<div class="item" >
+    <img src="https://i.pinimg.com/564x/26/42/5d/26425d8449850364254b5e3d3f6ed899.jpg" alt="Meal Image" class="product-image" width="200" height="200">
+    <div class="meal-info">
+        <div class="meal-name">Indian Desert</div>
+        <div class="meal-description">Lorem ipsum dolor sit amet.</div>
+        <div class="meal-calories">1000 of cals</div>
+		<div class="meal-price">$20.99</div>
+                    <input type="checkbox" class="meal-checkbox">
+                    <button class="quantity-btn" data-operation="add">+</button>
+                    <span class="quantity">0</span>
+                    <button class="quantity-btn" data-operation="subtract">-</button>
+    </div>
+</div>
+
+<div class="item">
+    <img src="https://i.pinimg.com/564x/fe/5c/e1/fe5ce1ee281049c06a7ed30aae9e8a8f.jpg" alt="Meal Image" class="product-image" width="200" height="200">
+    <div class="meal-info">
+        <div class="meal-name">Italian Desert</div>
+        <div class="meal-description">Lorem ipsum dolor sit amet.</div>
+        <div class="meal-calories">1000 of cals</div>
+		<div class="meal-price">$20.99</div>
+                    <input type="checkbox" class="meal-checkbox">
+                    <button class="quantity-btn" data-operation="add">+</button>
+                    <span class="quantity">0</span>
+                    <button class="quantity-btn" data-operation="subtract">-</button>
+    </div>
+</div>
+
+<div class="item">
+    <img src="https://i.pinimg.com/564x/38/ad/cf/38adcfe13b57420e9d8d69ae0ee5bddd.jpg" alt="Meal Image" class="product-image" width="200" height="200">
+    <div class="meal-info">
+        <div class="meal-name">Summer Desert Recipes</div>
+        <div class="meal-description">Lorem ipsum dolor sit amet.</div>
+        <div class="meal-calories">1000 of cals</div>
+		<div class="meal-price">$20.99</div>
+                    <input type="checkbox" class="meal-checkbox">
+                    <button class="quantity-btn" data-operation="add">+</button>
+                    <span class="quantity">0</span>
+                    <button class="quantity-btn" data-operation="subtract">-</button>
+    </div>
+</div>
+
+		
+
+    </div>
+ 
+</main>
+
+<footer>
+    <div class="left-section">
+        <p>
+           <a href="mailto:YUM-YUM@restaurant.com"> <img src="img/mail.png" alt="Email Logo" > YUM-YUM@restaurant.com</a><br>
+            <img src="img/phone.png" alt="Phone Logo"> +966-555-5555
+        </p>
+    </div>
+
+    <div class="middle-section">
+         <div class="social">
+        <a href="https://twitter.com/?lang=en"><img src="img/x.png" alt="Twitter Logo"></a>
+        <a href="https://www.instagram.com/"><img src="img/insta.png" alt="Instagram Logo"></a>
+        <a href="https://www.facebook.com/"><img src="img/facebook.png" alt="Facebook Logo"></a>
+        </div>
+        <p> @YUM-YUM</p>
+    </div>
+    
+
+    <div class="right-section">
+        <p>&copy; 2024 YUM YUM. All rights reserved. </p>
+    </div>
+</footer>
+ <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Meal items
+            const mealItems = document.querySelectorAll('.item');
+            const sortSelect = document.getElementById('sortSelect');
+            const cartBtn = document.getElementById('cartBtn');
+
+            // Add event listener for sorting
+            sortSelect.addEventListener('change', function () {
+                sortItems();
+            });
+
+            // Add event listener for cart button
+            cartBtn.addEventListener('click', function () {
+                addToCart();
+            });
+
+            // Add event listener for quantity buttons
+            mealItems.forEach(item => {
+                const quantityBtns = item.querySelectorAll('.quantity-btn');
+                quantityBtns.forEach(btn => {
+                    btn.addEventListener('click', function () {
+                        updateQuantity(this);
+                    });
+                });
+            });
+
+            function sortItems() {
+                const itemsGrid = document.getElementById('itemsGrid');
+                const sortedItems = Array.from(mealItems).sort((a, b) => {
+                    const aName = a.querySelector('.meal-name').textContent.toLowerCase();
+                    const bName = b.querySelector('.meal-name').textContent.toLowerCase();
+                    const aPrice = parseFloat(a.querySelector('.meal-price').textContent.replace('$', ''));
+                    const bPrice = parseFloat(b.querySelector('.meal-price').textContent.replace('$', ''));
+
+                    if (sortSelect.value === 'nameAsc') {
+                        return aName.localeCompare(bName);
+                    } else if (sortSelect.value === 'nameDesc') {
+                        return bName.localeCompare(aName);
+                    } else if (sortSelect.value === 'priceAsc') {
+                        return aPrice - bPrice;
+                    } else if (sortSelect.value === 'priceDesc') {
+                        return bPrice - aPrice;
+                    }
+                });
+
+                itemsGrid.innerHTML = '';
+                sortedItems.forEach(item => {
+                    itemsGrid.appendChild(item);
+                });
+            }
+
+            function updateQuantity(button) {
+                const quantityElem = button.parentElement.querySelector('.quantity');
+                let quantity = parseInt(quantityElem.textContent);
+                const operation = button.getAttribute('data-operation');
+
+                if (operation === 'add') {
+                    quantity++;
+                } else if (operation === 'subtract') {
+                    if (quantity > 0) {
+                        quantity--;
+                    }
+                }
+
+                quantityElem.textContent = quantity;
+            }
+
+            function addToCart() {
+                const checkedItems = document.querySelectorAll('.meal-checkbox:checked');
+                const cartItems = [];
+
+                checkedItems.forEach(item => {
+                    const mealInfo = item.closest('.meal-info');
+                    const name = mealInfo.querySelector('.meal-name').textContent;
+                    const quantity = parseInt(mealInfo.querySelector('.quantity').textContent);
+                    const price = parseFloat(mealInfo.querySelector('.meal-price').textContent.replace('$', ''));
+                    const subtotal = quantity * price;
+
+                    cartItems.push({
+                        name: name,
+                        quantity: quantity,
+                        price: price,
+                        subtotal: subtotal
+                    });
+                });
+
+                // Store cart items in local storage
+                localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+                // Redirect to cart page
+                window.location.href = 'cart.html';
+            }
+        });
+    </script>
+</body>
+</html>

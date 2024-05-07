@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Owner Dashboard</title>
+    <link rel="stylesheet" href="css.css">
+<script src="js.js"></script>
+</head>
+<body>
+
+
+<header>
+    <div class="HEADER">
+        <img src="img/yumburger.png" alt="Logo">
+        <div class="vertical-line"></div>
+        <h1>YUM YUM</h1>
+    </div>
+    <nav>
+        <a href="Home.html" accesskey="1" >Home</a>
+        <a href="customer.html" accesskey="2" >Customer</a>
+        <a href="ownerdashbord.html" accesskey="3" >Owner</a>
+    </nav>
+</header>
+
+<div id='breadcrumb' > 
+    <a href="home.html"> home  </a>  &gt;  
+    <a href="ownerdashbord.html">Owner Dashboard </a>&gt;
+    <a href="MakeDeleteOfPage.html"> Make Or Delete Offers </a>
+</div>
+
+<main>
+
+
+
+<!-- theme -->
+             
+<form class="color-picker" action="">
+        <fieldset>
+           <legend class="visually-hidden">Appearance</legend>
+            <label for="light" class="visually-hidden">Light Mode</label>
+            <input type="radio" id="light" name="theme" checked="">
+
+            <label for="dark" class="visually-hidden">Dark Mode</label>
+            <input type="radio" id="dark" name="theme">
+
+        </fieldset>
+    </form>
+    <h2 class="page">Manage Offers</h2>
+
+    <div class="offer-list">
+        <!-- Offer items will be dynamically added here -->
+    </div>
+    <button type="button" class="buttun-offers"  onclick="deleteOffers()">Delete </button>
+
+    <div id="newformTitle">
+        <h2 class="page">Add New Offer</h2>
+    </div>
+
+    <form action="text" method="Post" class="Offer-form">
+        <div class="newOffer">
+            <label for="newOfferL">Label:</label>
+            <input id="newOfferL" class="INPUT" type="text" name="newOfferL" required><br>
+        </div>
+
+        <div class="newOffer">
+            <label for="newOfferP">Price:</label>
+            <input id="newOfferP" class="INPUT" type="number" name="newOfferP" required><br>
+        </div>
+
+        <div class="newOffer">
+            <label for="newOfferD">Description:</label>
+            <input id="newOfferD" class="INPUT" type="text" name="newOfferD" required><br>
+        </div>
+
+        <div class="newOffer">
+            <label for="newOfferImag">Image:</label>
+            <input type="file" id="newOfferImag" name="newOfferImag" accept="image/*" required><br>
+        </div>
+
+        <button type="button" class="buttun-offers" onclick="addOffer()">Add </button> 
+    </form>
+</main>
+
+<footer>
+    <div class="left-section">
+        <p>
+           <a href="mailto:YUM-YUM@restaurant.com"> <img src="img/mail.png" alt="Email Logo" > YUM-YUM@restaurant.com</a><br>
+            <img src="img/phone.png" alt="Phone Logo"> +966-555-5555
+        </p>
+    </div>
+
+    <div class="middle-section">
+        <div class="social">
+            <a href="https://twitter.com/?lang=en"><img src="img/x.png" alt="Twitter Logo"></a>
+            <a href="https://www.instagram.com/"><img src="img/insta.png" alt="Instagram Logo"></a>
+            <a href="https://www.facebook.com/"><img src="img/facebook.png" alt="Facebook Logo"></a>
+        </div>
+        <p> @YUM-YUM</p>
+    </div>
+
+    <div class="right-section">
+        <p>&copy; 2024 YUM YUM. All rights reserved. </p>
+    </div>
+</footer>
+
+<script>
+    function getOfferListFromStorage() {
+        return JSON.parse(localStorage.getItem('offerList')) || [];
+    }
+
+    function saveOfferListToStorage(offerList) {
+        localStorage.setItem('offerList', JSON.stringify(offerList));
+    }
+
+    function renderOfferList(offerList) {
+        var offerListContainer = document.querySelector('.offer-list');
+        offerListContainer.innerHTML = ''; 
+
+        offerList.forEach(function(offer, index) {
+            var offerDiv = document.createElement('div');
+            offerDiv.classList.add('offer-item');
+            offerDiv.id = 'offer' + (index + 1) + 'Div';
+            offerDiv.innerHTML = `
+                <p>
+                    <label for="offer${index + 1}">
+                        <img src="${offer.image}" alt="${offer.name}">
+                        ${offer.name}
+                        <input type="checkbox" id="offer${index + 1}" name="offer"> 
+                    </label>
+                </p>
+            `;
+            offerListContainer.appendChild(offerDiv);
+        });
+    }
+
+    function deleteOffers() {
+        var checkboxes = document.getElementsByName('offer');
+        var checkedOffers = [];
+        var offerList = getOfferListFromStorage();
+
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].checked) {
+                checkedOffers.push(i); 
+            }
+        }
+
+        if (checkedOffers.length === 0) {
+            alert('Please select at least one offer.');
+        } else {
+            if (confirm('Are you sure you want to delete the selected offers?')) {
+                checkedOffers.forEach(function(index) {
+                    offerList.splice(index, 1); 
+                });
+                saveOfferListToStorage(offerList);
+                renderOfferList(offerList);
+            }
+        }
+    }
+
+    function addOffer() {
+        var name = document.getElementById('newOfferL').value;
+        var price = document.getElementById('newOfferP').value;
+        var description = document.getElementById('newOfferD').value;
+        var imageInput = document.getElementById('newOfferImag'); // Get the input element
+        var image = imageInput.files[0]; // Get the selected file
+
+        var offerList = getOfferListFromStorage();
+
+        if (name === '' || price === '' || description === '' || !image) {
+            alert('Please fill in all fields and select an image.');
+            return;
+        } else {
+            var reader = new FileReader(); // Create a FileReader object
+
+            // Define a function to handle the FileReader's onload event
+            reader.onload = function(event) {
+                var imageData = event.target.result; // Get the image data
+                var newOffer = {
+                    name: name,
+                    price: price,
+                    description: description,
+                    image: imageData // Store the image data in the offer object
+                };
+                offerList.push(newOffer);
+                saveOfferListToStorage(offerList);
+                renderOfferList(offerList);
+                document.getElementById('newOfferL').value = '';
+                document.getElementById('newOfferP').value = '';
+                document.getElementById('newOfferD').value = '';
+                imageInput.value = ''; // Reset the input field to clear the selected image
+                alert('New offer added successfully.');
+            };
+
+            // Read the selected file as a data URL (base64 encoded)
+            reader.readAsDataURL(image);
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var offerList = getOfferListFromStorage();
+        renderOfferList(offerList);
+    });
+</script>
+
+</body>
+</html>

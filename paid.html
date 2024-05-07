@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Project Name - Cart</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+
+<body>
+    <header>
+        <div class="HEADER">
+            <img src="img/yumburger.png" alt="Logo">
+            <div class="vertical-line"></div>
+            <h1>YUM YUM</h1>
+        </div>
+        <nav>
+            <a href="Home.html" accesskey="1">Home</a>
+            <a href="customer.html" accesskey="2">Customer</a>
+            <a href="ownerdashbord.html" accesskey="3">Owner</a>
+        </nav>
+    </header>
+
+
+    <div class='breadcrumbs'>
+        <a href="Home.html"> Home </a> &gt;
+        <a href="customer.html"> Customer </a> &gt;
+        <a href="Index2.html"> Restaurant </a> &gt;
+        <a href="paid.html"> The cart </a>
+    </div>
+
+
+    <main>
+<!-- theme -->
+             
+<form class="color-picker" action="">
+        <fieldset>
+           <legend class="visually-hidden">Appearance</legend>
+            <label for="light" class="visually-hidden">Light Mode</label>
+            <input type="radio" id="light" name="theme" checked="">
+
+            <label for="dark" class="visually-hidden">Dark Mode</label>
+            <input type="radio" id="dark" name="theme">
+
+        </fieldset>
+    </form>
+
+        <div class="cart-title">
+            <h2>The cart</h2>
+            <a href="#" id="removeAllLink">Remove all</a>
+        </div>
+
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be dynamically added here -->
+        </div>
+
+        <div class="cart-summary">
+            <div class="sub-total">
+                <span>sub-total:</span>
+                <span id="subTotal">0.00 SR</span>
+            </div>
+            <a href="eval.html" id="checkoutLink">Check out</a>
+        </div>
+
+    </main>
+    <footer>
+        <div class="left-section">
+            <p>
+                <a href="mailto:YUM-YUM@restaurant.com"> <img src="img/mail.png" alt="Email Logo"> YUM-YUM@restaurant.com</a><br>
+                <img src="img/phone.png" alt="Phone Logo"> +966-555-5555
+            </p>
+        </div>
+
+        <div class="middle-section">
+            <div class="social">
+                <a href="https://twitter.com/?lang=en"><img src="img/x.png" alt="Twitter Logo"></a>
+                <a href="https://www.instagram.com/"><img src="img/insta.png" alt="Instagram Logo"></a>
+                <a href="https://www.facebook.com/"><img src="img/facebook.png" alt="Facebook Logo"></a>
+            </div>
+            <p> @YUM-YUM</p>
+        </div>
+
+
+        <div class="right-section">
+            <p>&copy; 2024 YUM YUM. All rights reserved. </p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const cartItemsContainer = document.getElementById('cartItems');
+            const subTotalElem = document.getElementById('subTotal');
+            const removeAllLink = document.getElementById('removeAllLink');
+            const checkoutLink = document.getElementById('checkoutLink');
+
+            let cartItems = [];
+			
+			// Function to add an item to the cart
+  function addToCart(item) {
+    const existingItem = cartItems.find((cartItem) => cartItem.name === item.name);
+
+    if (existingItem) {
+      // Item already exists in the cart, update its quantity
+      existingItem.quantity += item.quantity;
+    } else {
+      // Item doesn't exist in the cart, add it
+      cartItems.push(item);
+    }
+
+    updateCartDisplay();
+    saveCartItems();
+  }
+
+  // Function to remove an item from the cart
+  function removeFromCart(item) {
+    const itemIndex = cartItems.findIndex((cartItem) => cartItem.name === item.name);
+
+    if (itemIndex !== -1) {
+      // Remove the item from the cart
+      cartItems.splice(itemIndex, 1);
+    }
+
+    updateCartDisplay();
+    saveCartItems()
+	}
+
+            // Retrieve cart items from local storage
+            const storedCartItems = localStorage.getItem('cartItems');
+            if (storedCartItems) {
+                cartItems = JSON.parse(storedCartItems);
+            }
+
+            // Update the cart display
+            function updateCartDisplay() {
+                cartItemsContainer.innerHTML = '';
+
+                // Dynamically generate HTML for cart items
+                cartItems.forEach((item, index) => {
+                    const cartItemElem = document.createElement('div');
+                    cartItemElem.classList.add('cart-item');
+
+                    cartItemElem.innerHTML = `
+                        <div class="item-image-placeholder"><img src="${item.image}" alt="" width="100" height="50"></div>
+                        <div class="item-details">
+                            <div class="item-name">${item.name}</div>
+                            <div class="item-quantity">
+                                <button class="decrement-button" data-index="${index}">-</button>
+                                <input type="text" class="quantity-input" value="${item.quantity}">
+                                <button class="increment-button" data-index="${index}">+</button>
+                            </div>
+                            <p class="item-price">${item.price.toFixed(2)} SR</p>
+                        </div>
+                        <a href="#" class="remove-link" data-index="${index}">Remove</a>
+                    `;
+
+                    cartItemsContainer.appendChild(cartItemElem);
+                });
+
+                // Calculate and display subtotal
+                const subTotal = cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
+                subTotalElem.textContent = `${subTotal.toFixed(2)} SR`;
+
+                // Attach event listeners to dynamically generated elements
+                const removeLinks = document.getElementsByClassName('remove-link');
+                const decrementButtons = document.getElementsByClassName('decrement-button');
+                const incrementButtons = document.getElementsByClassName('increment-button');
+                const quantityInputs = document.getElementsByClassName('quantity-input');
+
+                for (let i = 0; i < removeLinks.length; i++) {
+                    removeLinks[i].addEventListener('click', function (event) {
+                        const index = parseInt(event.target.getAttribute('data-index'));
+                        removeCartItem(index);
+                    });
+                }
+
+                for (let i = 0; i < decrementButtons.length; i++) {
+                    decrementButtons[i].addEventListener('click', function (event) {
+                        const index = parseInt(event.target.getAttribute('data-index'));
+                        updateQuantity(index, -1);
+                    });
+                }
+
+                for (let i = 0; i < incrementButtons.length; i++) {
+                    incrementButtons[i].addEventListener('click', function (event) {
+                        const index = parseInt(event.target.getAttribute('data-index'));
+                        updateQuantity(index, 1);
+                    });
+                }
+
+                for (let i = 0; i < quantityInputs.length; i++) {
+                    quantityInputs[i].addEventListener('change', function (event) {
+                        const index = parseInt(event.target.parentElement.querySelector('.decrement-button').getAttribute('data-index'));
+                        updateQuantity(index, 0);
+                    });
+                }
+            }
+
+            // Remove a cart item
+            function removeCartItem(index) {
+                cartItems.splice(index, 1);
+                updateCartDisplay();
+                saveCartItems();
+            }
+
+            // Update the quantity of a cart item
+            function updateQuantity(index, change) {
+                const quantityInput = document.getElementsByClassName('quantity-input')[index];
+                let newQuantity = parseInt(quantityInput.value) + change;
+
+                if (newQuantity < 1 || isNaN(newQuantity)) {
+                    newQuantity = 1;
+                }
+
+                cartItems[index].quantity = newQuantity;
+                quantityInput.value = newQuantity;
+
+                updateCartDisplay();
+                saveCartItems();
+            }
+
+            // Save cart items to local storage
+            function saveCartItems() {
+                localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            }
+
+            // Remove all cart items
+            removeAllLink.addEventListener('click', function () {
+                cartItems = [];
+                updateCartDisplay();
+                saveCartItems();
+            });
+
+            // Check out
+            checkoutLink.addEventListener('click', function () {
+                const totalCost = document.getElementById('subTotal').textContent;
+                alert(`Thank you for your order! Your total cost is ${totalCost}.`);
+                window.location.href = "eval.html";
+            });
+
+            // Initiate cart display
+            updateCartDisplay();
+
+            // Save cart items
+            window.addEventListener('beforeunload', function () {
+                saveCartItems();
+            });
+        });
+    </script>
+
+</body>
+
+</html>
